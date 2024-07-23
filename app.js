@@ -71,7 +71,7 @@ app.use(productRouts);
 app.use(reviewRouts);                           
 app.use(authRoutes);
 app.use(cartRoutes);
-const port = 5000;
+const port = process.env.port || 5000;
 
 app.listen(port,()=>{
     console.log(`server runnin at port${port}`);
