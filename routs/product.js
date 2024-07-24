@@ -4,6 +4,19 @@ const router = express.Router();
 const Product = require('../models/product');
 const {validateProduct,isLoggedIn,isSeller,isProductAuthor } = require('../middleware');
 
+router.get('/',async(req,res)=>{
+        try{
+                const products = await Product.find({});
+
+        res.render('products/index',{products});
+        }
+        catch(e){
+                res.status(500).render('error',{err:e.message})
+        }
+
+        
+});
+
 router.get('/products',async(req,res)=>{
         try{
                 const products = await Product.find({});
