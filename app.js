@@ -13,11 +13,7 @@ const User = require('./models/user');
 
 const uri='mongodb://127.0.0.1:27017/shopping-app';
 
-mongoose.connect(uri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    serverSelectionTimeoutMS: 3000
-  })
+mongoose.connect(uri)
 .then(()=>{
     console.log(' DB connected')
 })
