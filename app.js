@@ -11,7 +11,13 @@ const LocalStratergy = require('passport-local');
 const User = require('./models/user');
 
 
-mongoose.connect('mongodb://127.0.0.1:27017/shopping-app')
+const uri='mongodb://127.0.0.1:27017/shopping-app';
+
+mongoose.connect(uri, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    serverSelectionTimeoutMS: 30000
+  })
 .then(()=>{
     console.log(' DB connected')
 })
